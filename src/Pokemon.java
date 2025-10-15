@@ -1,9 +1,19 @@
 import java.util.HashMap;
 
+// Base pokemon class
 public class Pokemon {
+
+    // Initialise variables for each pokemon
     int Health;
     String Type;
+
+    /*
+        Effectiveness is a type v type multiplier for every pokemon.
+        For example in Fire vs Grass, Fire's multiplier would be 2x against grass
+    */
     HashMap<String, Float> effectiveness = new HashMap<>();
+
+    // Each pokemon has 3 attack and 1 defense move
     String[] Moves = new String[4];
 
     public Pokemon() {
@@ -11,6 +21,7 @@ public class Pokemon {
         Type = "";
     }
 
+    // getter/setter(s)
     public int getHealth() {
         return Health;
     }
