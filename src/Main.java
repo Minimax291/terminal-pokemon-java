@@ -10,7 +10,6 @@ public class Main {
             }
         }
 
-        // TODO: Convert Moves into a hashmap, eg: "Growl": 10, 10 being damage value
         // Applying Damage
         Pokemon1.setHealth(Pokemon1.getHealth() - (
                 Pokemon2.Moves.values().get(Player2Move)
@@ -21,8 +20,9 @@ public class Main {
                         * Pokemon1.effectiveness.get(Pokemon2.Type)));
     }
     public static void main(String[] args) {
-        System.out.println("Welcome to Pokemon!");
+        System.out.println("Hello and welcome!");
         Charmander playerPokemon = new Charmander();
-        Bulbasaur enemyPokemon = new Bulbasaur();
+        playerPokemon.setHealth(playerPokemon.getHealth() - 15);
+        System.out.println("Player's Charmander health is: " + playerPokemon.getHealth());
     }
 }
