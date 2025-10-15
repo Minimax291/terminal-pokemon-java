@@ -14,7 +14,7 @@ public class Pokemon {
     HashMap<String, Float> effectiveness = new HashMap<>();
 
     // Each pokemon has 3 attack and 1 defense move
-    String[] Moves = new String[4];
+    HashMap<String, Integer> Moves = new HashMap<>();
 
     public Pokemon() {
         Health = 100;
@@ -34,7 +34,10 @@ public class Pokemon {
 class Charmander extends Pokemon {
     public Charmander() {
         Type = "fire";
-        Moves = new String[] {"Scratch", "Ember", "Flamethrower", "Growl"};
+        Moves.put("Scratch", 5);
+        Moves.put("Ember", 12);
+        Moves.put("Flamethrower", 25);
+        Moves.put("Growl", 0);
 
         effectiveness.put("fire", 1.0f);
         effectiveness.put("water", 0.75f);
@@ -46,7 +49,10 @@ class Charmander extends Pokemon {
 class Pikachu extends Pokemon {
     public Pikachu() {
         Type = "electric";
-        Moves = new String[] {"Quick Attack", "Thunder Shock", "Thunderbolt", "Tail Whip"};
+        Moves.put("Quick Attack", 5);
+        Moves.put("Thunder Shock", 12);
+        Moves.put("Thunderbolt", 25);
+        Moves.put("Tail Whip", 0);
 
         effectiveness.put("fire", 1.0f);
         effectiveness.put("water", 2.0f);
@@ -58,7 +64,10 @@ class Pikachu extends Pokemon {
 class Squirtle extends Pokemon {
     public Squirtle() {
         Type = "water";
-        Moves = new String[] {"Tackle", "Water Gun", "Hydro Pump", "Rain Dance"};
+        Moves.put("Tackle", 5);
+        Moves.put("Water Gun", 12);
+        Moves.put("Hydro Pump", 25);
+        Moves.put("Rain Dance", 0);
 
         effectiveness.put("fire", 2.0f);
         effectiveness.put("water", 1.0f);
@@ -70,7 +79,10 @@ class Squirtle extends Pokemon {
 class Bulbasaur extends Pokemon {
     public Bulbasaur() {
         Type = "grass";
-        Moves = new String[] {"Tackle", "Vine Whip", "Solar Beam", "Leech Seed"};
+        Moves.put("Tackle", 5);
+        Moves.put("Vine Whip", 12);
+        Moves.put("Solar Beam", 25);
+        Moves.put("Leech Seed", 0);
 
         effectiveness.put("fire", 0.75f);
         effectiveness.put("water", 2.0f);
