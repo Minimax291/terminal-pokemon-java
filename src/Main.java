@@ -11,18 +11,38 @@ public class Main {
         }
 
         // Applying Damage
-        Pokemon1.setHealth(Pokemon1.getHealth() - (
-                Pokemon2.Moves.values().get(Player2Move)
-                        * Pokemon2.effectiveness.get(Pokemon1.Type)));
+        Pokemon1.setHealth( Pokemon1.getHealth() -
+                Math.round(Pokemon2.Damage[Player2Move] *
+                        Pokemon2.effectiveness.get(Pokemon1.Type)));
 
-        Pokemon2.setHealth(Pokemon2.getHealth() - (
-                Pokemon1.Moves.values().get(Player1Move)
-                        * Pokemon1.effectiveness.get(Pokemon2.Type)));
+        // Before v After Debug print statements
+
+        /*
+        System.out.println("Pokemon1: Damage: " + Pokemon2.Damage[Player2Move] + " Effectiveness multiplier: " + Pokemon2.effectiveness.get(Pokemon1.Type));
+        System.out.println("Total: " + Math.round(Pokemon2.Damage[Player2Move] * Pokemon2.effectiveness.get(Pokemon1.Type)));
+        */
+
+        Pokemon2.setHealth( Pokemon2.getHealth() -
+                Math.round(Pokemon1.Damage[Player1Move] *
+                        Pokemon1.effectiveness.get(Pokemon2.Type)));
+
+        /*
+        System.out.println("Pokemon2: Damage: " + Pokemon1.Damage[Player1Move] + " Effectiveness multiplier: " + Pokemon1.effectiveness.get(Pokemon2.Type));
+        System.out.println("Total: " + Math.round(Pokemon1.Damage[Player1Move] * Pokemon1.effectiveness.get(Pokemon2.Type)));
+         */
     }
     public static void main(String[] args) {
-        System.out.println("Hello and welcome!");
+        System.out.println("Welcome to Pokemon!");
         Charmander playerPokemon = new Charmander();
-        playerPokemon.setHealth(playerPokemon.getHealth() - 15);
-        System.out.println("Player's Charmander health is: " + playerPokemon.getHealth());
+        Bulbasaur enemyPokemon = new Bulbasaur();
+
+        System.out.println("Player Pokemon health: " + playerPokemon.getHealth());
+        System.out.println("Enemy Pokemon health: " + enemyPokemon.getHealth());
+
+        // Damage(playerPokemon, enemyPokemon, 1, Math.toIntExact(Math.round(Math.random() * 4)));
+        Damage(playerPokemon, enemyPokemon, 1, 1);
+
+        System.out.println("Player Pokemon health: " + playerPokemon.getHealth());
+        System.out.println("Enemy Pokemon health: " + enemyPokemon.getHealth());
     }
 }
