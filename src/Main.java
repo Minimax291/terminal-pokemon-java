@@ -94,15 +94,29 @@ public class Main {
                 System.out.println((i+1) + ") " +player.Moves[i]);
             }
 
-            int playerMove = kin1.nextInt()-1; //player move storage variable
+            int playerMove = 0;//player move storage variable
+
+            boolean value = false;
 
             //exception handling
-            if(playerMove<0 || playerMove>=4)
+            while (!value)
             {
-                System.out.println("Invalid input. Try again");
-                continue;
-            }
+                if (!kin1.hasNextInt())
+                {
+                    System.out.println("Please enter a number between 1-4");
+                    kin1.next();
+                    continue;
+                }
 
+                playerMove = kin1.nextInt() - 1;
+
+                if (playerMove >= 0 && playerMove < 4)
+                {
+                    value = true;
+                }
+                else
+                    System.out.println("Invalid input. Try again");
+            }
 
             int enemyMove = rnd.nextInt(4); //ai pokemon randomized move selection
 
