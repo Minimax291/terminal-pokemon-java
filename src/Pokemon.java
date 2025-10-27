@@ -4,7 +4,7 @@ import java.util.HashMap;
 public class Pokemon {
 
     // Initialise variables for each pokemon
-    int Health;
+    private int Health;
     String Type;
 
     /*
