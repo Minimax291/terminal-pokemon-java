@@ -101,7 +101,7 @@ public class Main {
             //exception handling
             while (!value)
             {
-                if (!kin1.hasNextInt())
+                if (!kin1.hasNextInt()) // If the player inputs anything that isn't an integer
                 {
                     System.out.println("Please enter a number between 1-4");
                     kin1.next();
@@ -110,6 +110,7 @@ public class Main {
 
                 playerMove = kin1.nextInt() - 1;
 
+                // exception handling. user input is out of bounds(i.e 1-4)
                 if (playerMove >= 0 && playerMove < 4)
                 {
                     value = true;
