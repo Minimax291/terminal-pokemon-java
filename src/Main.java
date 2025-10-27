@@ -35,7 +35,7 @@ public class Main {
     public static void main(String[] args)
     {
         Scanner kin1 = new Scanner(System.in); //input for user
-        Random rnd = new Random(); //for ai, randomized pokimon and move selection
+        Random rnd = new Random(); //for ai, randomized pokemon and move selection
 
         System.out.println("Welcome to Pokemon!");
         Pokemon player = null; // empty box to put pokemon object later
@@ -73,20 +73,20 @@ public class Main {
         }
 
         //ai pokemon selection
-        Pokemon[] poki = {new Bulbasaur(),new Charmander(), new Pikachu(), new Squirtle()};
-        Pokemon aipoki = poki[rnd.nextInt(poki.length)];
-        System.out.println("Your opponent chose: " + aipoki.getClass().getSimpleName() + "!");
+        Pokemon[] poke = {new Bulbasaur(),new Charmander(), new Pikachu(), new Squirtle()};
+        Pokemon aipoke = poke[rnd.nextInt(poke.length)];
+        System.out.println("Your opponent chose: " + aipoke.getClass().getSimpleName() + "!");
 
 
         //battle battle loop(input & output)
-        while(player.getHealth()>0 && aipoki.getHealth()>0)
+        while(player.getHealth()>0 && aipoke.getHealth()>0)
         {
             //showing current health of both pokemons
             System.out.println("------------------------------");
-            System.out.println("Your Pokimon health: " + player.getHealth());
-            System.out.println("Opponent Pokimon health: " + aipoki.getHealth());
+            System.out.println("Your Pokemon health: " + player.getHealth());
+            System.out.println("Opponent Pokemon health: " + aipoke.getHealth());
             System.out.println("------------------------------");
-            System.out.println("\n\nChoose a move for your Pokimon: \n");
+            System.out.println("\n\nChoose a move for your Pokemon: \n");
 
             //printing available moves for player pokemon
             for (int i=0;i<player.Moves.length;i++)
@@ -122,23 +122,23 @@ public class Main {
 
             //showing the pokemon moves of both player and ai
             System.out.println("Your " + player.getClass().getSimpleName() + " used " + player.Moves[playerMove]);
-            System.out.println("Opponent " + aipoki.getClass().getSimpleName() + " used " + aipoki.Moves[enemyMove]);
+            System.out.println("Opponent " + aipoke.getClass().getSimpleName() + " used " + aipoke.Moves[enemyMove]);
 
-            Damage(player,aipoki,playerMove,enemyMove); //calling main battle combat function
+            Damage(player,aipoke,playerMove,enemyMove); //calling main battle combat function
         }
 
 
         //Battle end dialouges
-        if (player.getHealth()<=0 && aipoki.getHealth()<=0)
+        if (player.getHealth()<=0 && aipoke.getHealth()<=0)
         {
-            System.out.println("\n\n It's a draw!!!!!");
+            System.out.println("\n\nIt's a draw!!!!!");
         }
-        else if (player.getHealth()>0 && aipoki.getHealth()<=0)
+        else if (player.getHealth()>0 && aipoke.getHealth()<=0)
         {
-            System.out.println("\n\nOpponent Pokimon fainted!!!!\nYou win");
+            System.out.println("\n\nOpponent Pokemon fainted!!!!\nYou win");
         }
         else
-            System.out.println("\n\n Your Pokimon fainted!!!!\nOpponent wins ");
+            System.out.println("\n\nYour Pokemon fainted!!!!\nOpponent wins ");
 
         kin1.close();
     }
