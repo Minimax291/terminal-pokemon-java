@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
     public static void Damage(Pokemon Pokemon1, Pokemon Pokemon2, int Player1Move, int Player2Move) {
@@ -31,18 +32,115 @@ public class Main {
         System.out.println("Total: " + Math.round(Pokemon1.Damage[Player1Move] * Pokemon1.effectiveness.get(Pokemon2.Type)));
          */
     }
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
+        Scanner kin1 = new Scanner(System.in); //input for user
+        Random rnd = new Random(); //for ai, randomized pokemon and move selection
+
         System.out.println("Welcome to Pokemon!");
-        Charmander playerPokemon = new Charmander();
-        Bulbasaur enemyPokemon = new Bulbasaur();
+        Pokemon player = null; // empty box to put pokemon object later
+        boolean valid = false; //exception handling for pokemon choosing
 
-        System.out.println("Player Pokemon health: " + playerPokemon.getHealth());
-        System.out.println("Enemy Pokemon health: " + enemyPokemon.getHealth());
 
-        // Damage(playerPokemon, enemyPokemon, 1, Math.toIntExact(Math.round(Math.random() * 4)));
-        Damage(playerPokemon, enemyPokemon, 1, 1);
+        //pokemon object creation according to user input
+        while (!valid)
+        {
+            System.out.println("Choose your Pokemon:\nA) Bulbasaur!\nB) Charmander!\nC) Pikachu!\nD) Squirtle! ");
+            String choice = kin1.nextLine().trim().toUpperCase(); //make the input fully upper class and removes white space
 
-        System.out.println("Player Pokemon health: " + playerPokemon.getHealth());
-        System.out.println("Enemy Pokemon health: " + enemyPokemon.getHealth());
+            if (choice.equals("A") || choice.equals("BULBASAUR"))
+            {
+                player = new Bulbasaur();
+                valid =true;
+            }
+            else if (choice.equals("B") || choice.equals("CHARMANDER"))
+            {
+                player = new Charmander();
+                valid =true;
+            }
+            else if (choice.equals("C") || choice.equals("PIKACHU"))
+            {
+                player = new Pikachu();
+                valid =true;
+            }
+            else if (choice.equals("D") || choice.equals("SQUIRTLE"))
+            {
+                player = new Squirtle();
+                valid =true;
+            }
+            else
+                System.out.println("Invalid choice. Try again"); //exception handling
+        }
+
+        //ai pokemon selection
+        Pokemon[] poke = {new Bulbasaur(),new Charmander(), new Pikachu(), new Squirtle()};
+        Pokemon aipoke = poke[rnd.nextInt(poke.length)];
+        System.out.println("Your opponent chose: " + aipoke.getClass().getSimpleName() + "!");
+
+
+        //battle battle loop(input & output)
+        while(player.getHealth()>0 && aipoke.getHealth()>0)
+        {
+            //showing current health of both pokemons
+            System.out.println("------------------------------");
+            System.out.println("Your Pokemon health: " + player.getHealth());
+            System.out.println("Opponent Pokemon health: " + aipoke.getHealth());
+            System.out.println("------------------------------");
+            System.out.println("\n\nChoose a move for your Pokemon: \n");
+
+            //printing available moves for player pokemon
+            for (int i=0;i<player.Moves.length;i++)
+            {
+                System.out.println((i+1) + ") " +player.Moves[i]);
+            }
+
+            int playerMove = 0;//player move storage variable
+
+            boolean value = false;
+
+            //exception handling
+            while (!value)
+            {
+                if (!kin1.hasNextInt()) // If the player inputs anything that isn't an integer
+                {
+                    System.out.println("Please enter a number between 1-4");
+                    kin1.next();
+                    continue;
+                }
+
+                playerMove = kin1.nextInt() - 1;
+
+                // exception handling. user input is out of bounds(i.e 1-4)
+                if (playerMove >= 0 && playerMove < 4)
+                {
+                    value = true;
+                }
+                else
+                    System.out.println("Invalid input. Try again");
+            }
+
+            int enemyMove = rnd.nextInt(4); //ai pokemon randomized move selection
+
+            //showing the pokemon moves of both player and ai
+            System.out.println("Your " + player.getClass().getSimpleName() + " used " + player.Moves[playerMove]);
+            System.out.println("Opponent " + aipoke.getClass().getSimpleName() + " used " + aipoke.Moves[enemyMove]);
+
+            Damage(player,aipoke,playerMove,enemyMove); //calling main battle combat function
+        }
+
+
+        //Battle end dialouges
+        if (player.getHealth()<=0 && aipoke.getHealth()<=0)
+        {
+            System.out.println("\n\nIt's a draw!!!!!");
+        }
+        else if (player.getHealth()>0 && aipoke.getHealth()<=0)
+        {
+            System.out.println("\n\nOpponent Pokemon fainted!!!!\nYou win");
+        }
+        else
+            System.out.println("\n\nYour Pokemon fainted!!!!\nOpponent wins ");
+
+        kin1.close();
     }
 }
