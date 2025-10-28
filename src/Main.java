@@ -103,12 +103,14 @@ public class Main {
             System.out.println("Your Pokemon health: " + player.getHealth());
             System.out.println("Opponent Pokemon health: " + aipoke.getHealth());
             System.out.println("------------------------------");
-            System.out.println("\n\nChoose a move for your Pokemon: \n");
+            System.out.printf("\n\nChoose a move for your Pokemon (%d% effectiveness): \n", Math.round(player.effectiveness.get(aipoke.Type) * 100));
 
             //printing available moves for player pokemon
+            String[] movesDesc = {"Small", "Medium", "Large", "Defence"};
+
             for (int i=0;i<player.Moves.length;i++)
             {
-                System.out.println((i+1) + ") " +player.Moves[i]);
+                System.out.println((i+1) + ") " +player.Moves[i] + " (" + movesDesc[i] + ")");
             }
 
             int playerMove = 0;//player move storage variable
