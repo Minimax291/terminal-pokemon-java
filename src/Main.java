@@ -112,7 +112,7 @@ public class Main {
             System.out.println("Your Pokemon health: " + player.getHealth());
             System.out.println("Opponent Pokemon health: " + aipoke.getHealth());
             System.out.println("------------------------------");
-            System.out.printf("\n\nChoose a move for your Pokemon (%d% effectiveness): \n", Math.round(player.effectiveness.get(aipoke.Type) * 100));
+            System.out.printf("\nChoose a move for your Pokemon (%d%% effectiveness): \n", (int)Math.ceil(player.effectiveness.get(aipoke.Type) * 100));
 
             //printing available moves for player pokemon
             String[] movesDesc = {"Small", "Medium", "Large", "Defence"};
