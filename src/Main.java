@@ -151,11 +151,20 @@ public class Main {
             // https://docs.oracle.com/javase/8/docs/api/java/util/Random.html#nextInt--:~:text=Returns%20a%20pseudorandom%2C%20uniformly%20distributed%20int-,value%20between%200%20(inclusive)%20and%20the%20specified%20value%20(exclusive),-%2C%20drawn%20from%20this%20random%20number%20generator%27s%20sequence.%20The
             int enemyMove = rnd.nextInt(4); //ai pokemon randomized move selection
 
-            //showing the pokemon moves of both player and ai
-            System.out.println("Your " + player.getName() + " used " + player.Moves[playerMove]);
-            System.out.println("Opponent " + aipoke.getName() + " used " + aipoke.Moves[enemyMove]);
+           int[] beforeHealth = new int[2];
+            beforeHealth[0] = player.getHealth();
+            beforeHealth[1] = aipoke.getHealth();
 
             Damage(player,aipoke,playerMove,enemyMove); //calling main battle combat function
+
+            int[] afterHealth = new int[2];
+            afterHealth[0] = player.getHealth();
+            afterHealth[1] = aipoke.getHealth();
+
+            //showing the pokemon moves of both player and ai
+            System.out.println("Your " + player.getName() + " used " + player.Moves[playerMove] + " (" + (beforeHealth[1] - afterHealth[1]) + " Damage)");
+            System.out.println("Opponent " + aipoke.getName() + " used " + aipoke.Moves[enemyMove] + " (" + (beforeHealth[0] - afterHealth[0]) + " Damage)");
+            System.out.println();
         }
 
 
