@@ -30,7 +30,7 @@ public class Main {
 
         // Applying Damage
         Pokemon1.setHealth( Pokemon1.getHealth() -
-                Math.round(Pokemon2.Damage[Player2Move] *
+                Math.round(Pokemon2.Damage[Player2Move - 1] *
                         Pokemon2.effectiveness.get(Pokemon1.Type)));
 
         // Before v After Debug print statements
@@ -41,7 +41,7 @@ public class Main {
         */
 
         Pokemon2.setHealth( Pokemon2.getHealth() -
-                Math.round(Pokemon1.Damage[Player1Move] *
+                Math.round(Pokemon1.Damage[Player1Move - 1] *
                         Pokemon1.effectiveness.get(Pokemon2.Type)));
 
         /*
