@@ -22,7 +22,7 @@ public class Main {
         }
         if (Player2Move == 4) {
             float result = dice.nextFloat();
-            if (result < 0.8f) { // There's an 80% chance the defense works and deflects the enemy pokemon's move
+            if (result < 0.8f) {
                 System.out.println(Pokemon2.getName() + "'s defence has worked! Moving to next round.");
                 return;
             }
@@ -57,6 +57,15 @@ public class Main {
         System.out.println("Welcome to Pokemon!");
         Pokemon player = null; // empty box to put pokemon object later
         boolean valid = false; //exception handling for pokemon choosing
+
+        System.out.println("Pick a pokemon");
+        System.out.println("You can pick between 4 moves, 3 attack and 1 defence");
+        System.out.println("Small, Medium, Large and Defence");
+        System.out.println("Do you understand this? [y/n]");
+        String understanding = kin1.nextLine().toLowerCase();
+        if (understanding.equals("n") || understanding.equals("no")) {
+            return;
+        }
 
 
         //pokemon object creation according to user input
