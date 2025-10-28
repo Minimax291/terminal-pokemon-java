@@ -138,6 +138,8 @@ public class Main {
                     System.out.println("Invalid input. Try again");
             }
 
+            // Note: by default it goes from 0-n where n is exclusive, in our case it's 0-3... ¯\_(ツ)_/¯
+            // https://docs.oracle.com/javase/8/docs/api/java/util/Random.html#nextInt--:~:text=Returns%20a%20pseudorandom%2C%20uniformly%20distributed%20int-,value%20between%200%20(inclusive)%20and%20the%20specified%20value%20(exclusive),-%2C%20drawn%20from%20this%20random%20number%20generator%27s%20sequence.%20The
             int enemyMove = rnd.nextInt(4); //ai pokemon randomized move selection
 
             //showing the pokemon moves of both player and ai
