@@ -1,0 +1,9 @@
+Your pokemon: 100hp
+Enemy pokemon: 50hp
+
+1. Large attack 25hp, 50%, 40hp
+2. Medium attack 12hp, 75%, 20hp
+3. Small attack 5hp, 100%, 10hp
+4. Defense 80%
+
+Please pick an option
