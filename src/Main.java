@@ -92,7 +92,7 @@ public class Main {
         //ai pokemon selection
         Pokemon[] poke = {new Bulbasaur(),new Charmander(), new Pikachu(), new Squirtle()};
         Pokemon aipoke = poke[rnd.nextInt(poke.length)];
-        System.out.println("Your opponent chose: " + aipoke.getClass().getSimpleName() + "!");
+        System.out.println("Your opponent chose: " + aipoke.getName() + "!");
 
 
         //battle battle loop(input & output)
@@ -143,8 +143,8 @@ public class Main {
             int enemyMove = rnd.nextInt(4); //ai pokemon randomized move selection
 
             //showing the pokemon moves of both player and ai
-            System.out.println("Your " + player.getClass().getSimpleName() + " used " + player.Moves[playerMove]);
-            System.out.println("Opponent " + aipoke.getClass().getSimpleName() + " used " + aipoke.Moves[enemyMove]);
+            System.out.println("Your " + player.getName() + " used " + player.Moves[playerMove]);
+            System.out.println("Opponent " + aipoke.getName() + " used " + aipoke.Moves[enemyMove]);
 
             Damage(player,aipoke,playerMove,enemyMove); //calling main battle combat function
         }
