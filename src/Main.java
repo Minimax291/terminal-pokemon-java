@@ -62,7 +62,7 @@ public class Main {
         //pokemon object creation according to user input
         while (!valid)
         {
-            System.out.println("Choose your Pokemon:\nA) Bulbasaur!\nB) Charmander!\nC) Pikachu!\nD) Squirtle! ");
+            System.out.println("Choose your Pokemon:\nA) Bulbasaur\nB) Charmander\nC) Pikachu\nD) Squirtle ");
             String choice = kin1.nextLine().trim().toUpperCase(); //make the input fully upper class and removes white space
 
             if (choice.equals("A") || choice.equals("BULBASAUR"))
