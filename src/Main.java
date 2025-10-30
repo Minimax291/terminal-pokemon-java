@@ -30,7 +30,7 @@ public class Main {
 
         // Applying Damage
         Pokemon1.setHealth( Pokemon1.getHealth() -
-                Math.round(Pokemon2.Damage[Player2Move - 1] *
+                Math.round(Pokemon2.Damage[Player2Move] *
                         Pokemon2.effectiveness.get(Pokemon1.Type)));
 
         // Before v After Debug print statements
@@ -41,7 +41,7 @@ public class Main {
         */
 
         Pokemon2.setHealth( Pokemon2.getHealth() -
-                Math.round(Pokemon1.Damage[Player1Move - 1] *
+                Math.round(Pokemon1.Damage[Player1Move] *
                         Pokemon1.effectiveness.get(Pokemon2.Type)));
 
         /*
@@ -126,25 +126,29 @@ public class Main {
 
             boolean value = false;
 
-            //exception handling
+            //Taking player's move input
             while (!value)
             {
-                if (!kin1.hasNextInt()) // If the player inputs anything that isn't an integer
+                try
                 {
-                    System.out.println("Please enter a number between 1-4");
-                    kin1.next();
-                    continue;
+                    System.out.println("Select your move(1-4): ");
+                    playerMove=kin1.nextInt() - 1;
+
+                    //exception handling for Int input outside 1-4
+                    if (playerMove >= 0 && playerMove < 4)
+                    {
+                        value = true;
+                    }
+                    else
+                        System.out.println("Invalid Input");
                 }
 
-                playerMove = kin1.nextInt() - 1;
-
-                // exception handling. user input is out of bounds(i.e 1-4)
-                if (playerMove >= 0 && playerMove < 4)
+                //exception handling with any other output
+                catch (Exception e)
                 {
-                    value = true;
+                    System.out.println("Only numbers are accepted");
+                    kin1.nextLine();
                 }
-                else
-                    System.out.println("Invalid input. Try again");
             }
 
             // Note: by default it goes from 0-n where n is exclusive, in our case it's 0-3... ¯\_(ツ)_/¯
@@ -183,3 +187,12 @@ public class Main {
         kin1.close();
     }
 }
+/* reference used - JOYDEEP BANIK
+https://www.youtube.com/watch?v=mJ-qvsxPHpY - GIT explanation for beginners
+https://www.youtube.com/watch?v=hwP7WQkmECE - GIT mini explanation
+https://www.geeksforgeeks.org/java/generating-random-numbers-in-java/ - Random number generator
+https://pokemon.fandom.com/wiki/Games - Pokemon Fandom(Game knowledge)
+https://pokemon.fandom.com/wiki/Pokémon_battle - Pokemon Battles (Battle rules and UI knowledge)
+https://www.w3schools.com/java/ - W3 School to help me with understanding + solving the code
+ChatGPT - for helping with debugging and error finding
+ */
