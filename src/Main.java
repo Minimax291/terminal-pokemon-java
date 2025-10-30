@@ -196,4 +196,10 @@ https://pokemon.fandom.com/wiki/Games - Pokemon Fandom(Game knowledge)
 https://pokemon.fandom.com/wiki/Pokémon_battle - Pokemon Battles (Battle rules and UI knowledge)
 https://www.w3schools.com/java/ - W3 School to help me with understanding + solving the code
 ChatGPT - for helping with debugging and error finding
+
+Akanksh Chitimalla references:
+https://pokemon.fandom.com/wiki/Pok%C3%A9mon_battle - Pokemon battle system
+https://pokemondb.net/type - Pokemon Type system
+https://www.w3schools.com/java/java_hashmap.asp - Java Hashmaps
+https://www.youtube.com/watch?v=WEILxTBDy0Y - Visualisation of HashMap
  */
