@@ -61,6 +61,7 @@ public class Main {
         System.out.println("Pick a pokemon");
         System.out.println("You can pick between 4 moves, 3 attack and 1 defence");
         System.out.println("Small, Medium, Large and Defence");
+        System.out.println("Defence has a 50/50 chance of deflecting the enemy");
         System.out.println("Do you understand this? [y/n]");
         String understanding = kin1.nextLine().toLowerCase();
         if (understanding.equals("n") || understanding.equals("no")) {
