@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     public static void Damage(Pokemon Pokemon1, Pokemon Pokemon2, int Player1Move, int Player2Move) {
         // If both players do a defence move, 0 vs 0 = 0, nothing changes
-        if (Player1Move == 4 && Player2Move == 4) {
+        if (Player1Move == 3 && Player2Move == 3) {
             System.out.println("Both players chose defence, round is void");
             return;
         }
@@ -13,17 +13,17 @@ public class Main {
         Random dice = new Random();
 
         // Duplication due to being unable to figure out which player did the defence move in a attack v defence scenario
-        if (Player1Move == 4) {
+        if (Player1Move == 3) {
             float result = dice.nextFloat();
             if (result < 0.8f) { // There's an 80% chance the defense works and deflects the enemy pokemon's move
-                System.out.println(Pokemon1.getName() + "'s defence has worked! Moving to next round.");
+                System.out.println("Your " + Pokemon1.getName() + "'s defence has worked! Moving to next round.\n");
                 return;
             }
         }
-        if (Player2Move == 4) {
+        if (Player2Move == 3) {
             float result = dice.nextFloat();
             if (result < 0.8f) {
-                System.out.println(Pokemon2.getName() + "'s defence has worked! Moving to next round.");
+                System.out.println("Enemy " + Pokemon2.getName() + "'s defence has worked! Moving to next round.\n");
                 return;
             }
         }
