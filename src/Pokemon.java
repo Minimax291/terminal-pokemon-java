@@ -1,3 +1,6 @@
+/* Akanksh Start */
+// This file is entirely done by Akanksh
+
 import java.util.HashMap;
 
 // Base pokemon class
@@ -94,3 +97,4 @@ class Bulbasaur extends Pokemon {
         effectiveness.put("grass", 1.0f);
     }
 }
+/* Akanksh End*/

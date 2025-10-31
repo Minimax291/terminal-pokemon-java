@@ -2,6 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+    /* Akanksh Start */
     public static void Damage(Pokemon Pokemon1, Pokemon Pokemon2, int Player1Move, int Player2Move) {
         // If both players do a defence move, 0 vs 0 = 0, nothing changes
         if (Player1Move == 3 && Player2Move == 3) {
@@ -67,9 +68,12 @@ public class Main {
         System.out.println("Pokemon2: Damage: " + Pokemon1.Damage[Player1Move] + " Effectiveness multiplier: " + Pokemon1.effectiveness.get(Pokemon2.Type));
         System.out.println("Total: " + Math.round(Pokemon1.Damage[Player1Move] * Pokemon1.effectiveness.get(Pokemon2.Type)));
          */
+
+        /* Akanksh End */
     }
     public static void main(String[] args)
     {
+        /* Joydeep Start */
         Scanner kin1 = new Scanner(System.in); //input for user
         Random rnd = new Random(); //for ai, randomized pokemon and move selection
 
@@ -83,6 +87,9 @@ public class Main {
         System.out.println("Defence has a 50/50 chance of deflecting the enemy");
         System.out.println("Do you understand this? [Y/n]");
         String understanding = kin1.nextLine().trim().toLowerCase();
+        /* Joydeep End */
+
+        /* Akanksh Start */
         if (!understanding.isEmpty()) {
             if (understanding.charAt(0) == 'y') {
                ;
@@ -95,6 +102,9 @@ public class Main {
 
         System.out.println();
 
+        /* Akanksh End */
+
+        /* Joydeep Start */
 
         //pokemon object creation according to user input
         while (!valid)
@@ -213,6 +223,7 @@ public class Main {
             System.out.println("\n\nYour Pokemon fainted!!!!\nOpponent wins ");
 
         kin1.close();
+        /* Joydeep End */
     }
 }
 /* reference used - JOYDEEP BANIK
@@ -228,5 +239,7 @@ Akanksh Chitimalla references:
 https://pokemon.fandom.com/wiki/Pok%C3%A9mon_battle - Pokemon battle system
 https://pokemondb.net/type - Pokemon Type system
 https://www.w3schools.com/java/java_hashmap.asp - Java Hashmaps
-https://www.youtube.com/watch?v=WEILxTBDy0Y - Visualisation of HashMap
+https://www.spiceworks.com/it-security/data-security/articles/what-is-hashing/ - What is Hashmap - Spiceworks
+https://docs.oracle.com/javase/8/docs/api/java/util/Random.html - Random generation - such as nextBoolean(), nextFloat()
+https://java-programming.mooc.fi/part-12/3-randomness/ - Probabilities in Java
  */
