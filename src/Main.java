@@ -29,9 +29,28 @@ public class Main {
         }
 
         // Applying Damage
+
+        // Critical Damage (1/16) chance of occuring
+
+        float crit_dmg_poke1 = 1;
+        float crit_dmg_poke2 = 1;
+
+        // Debug if bypass
+        //if (true) {
+        if (dice.nextFloat() < ((float) 1 / 16)) {
+            // 50/50 chance of crit damage is done by either pokemon
+            if (dice.nextBoolean()) {
+                crit_dmg_poke1 = 1.5f;
+                System.out.println("Your " + Pokemon1.getName() + " did a critical damage! Applying 1.5x damage");
+            } else {
+                crit_dmg_poke2 = 1.5f;
+                System.out.println("Enemy " + Pokemon2.getName() + " did a critical damage! Applying 1.5x damage");
+            }
+        }
+
         Pokemon1.setHealth( Pokemon1.getHealth() -
                 Math.round(Pokemon2.Damage[Player2Move] *
-                        Pokemon2.effectiveness.get(Pokemon1.Type)));
+                        Pokemon2.effectiveness.get(Pokemon1.Type) * crit_dmg_poke2)); // Enemy's crit will be applied to player
 
         // Before v After Debug print statements
 
@@ -42,7 +61,7 @@ public class Main {
 
         Pokemon2.setHealth( Pokemon2.getHealth() -
                 Math.round(Pokemon1.Damage[Player1Move] *
-                        Pokemon1.effectiveness.get(Pokemon2.Type)));
+                        Pokemon1.effectiveness.get(Pokemon2.Type) * crit_dmg_poke1)); // Player's crit will be applied to enemy
 
         /*
         System.out.println("Pokemon2: Damage: " + Pokemon1.Damage[Player1Move] + " Effectiveness multiplier: " + Pokemon1.effectiveness.get(Pokemon2.Type));
