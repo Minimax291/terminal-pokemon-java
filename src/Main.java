@@ -37,7 +37,7 @@ public class Main {
 
         // Debug if bypass
         //if (true) {
-        if (dice.nextFloat() < ((float) 1 / 16)) {
+        if (dice.nextFloat() < ((float) 1 / 6)) {
             // 50/50 chance of crit damage is done by either pokemon
             if (dice.nextBoolean()) {
                 crit_dmg_poke1 = 1.5f;
