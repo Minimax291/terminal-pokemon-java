@@ -130,7 +130,7 @@ public class Main {
         Pokemon[] poke = {new Bulbasaur(),new Charmander(), new Pikachu(), new Squirtle()};
         Pokemon aipoke = poke[rnd.nextInt(poke.length)];
         System.out.println("Your opponent chose: " + aipoke.getName() + "!");
-
+        System.out.printf("Your opponent %s is %d%% effective against your pokemon\n", aipoke.getName(), (int)Math.ceil(aipoke.effectiveness.get(player.Type) * 100));
 
         //battle battle loop(input & output)
         while(player.getHealth()>0 && aipoke.getHealth()>0)
