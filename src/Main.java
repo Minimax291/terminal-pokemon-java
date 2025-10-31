@@ -82,9 +82,13 @@ public class Main {
         System.out.println("Small, Medium, Large and Defence");
         System.out.println("Defence has a 50/50 chance of deflecting the enemy");
         System.out.println("Do you understand this? [Y/n]");
-        String understanding = kin1.nextLine().toLowerCase();
+        String understanding = kin1.nextLine().trim().toLowerCase();
         if (!understanding.isEmpty()) {
-            if (understanding.charAt(0) == 'n') {
+            if (understanding.charAt(0) == 'y') {
+               ;
+            } else if(understanding.charAt(0) == 'n') {
+                return;
+            } else {
                 return;
             }
         }
